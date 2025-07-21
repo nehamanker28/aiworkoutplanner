@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, StyleSheet ,Button} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootStackParamList } from './commons/types';
-
+// import "./global.css"
 type navigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = { 
