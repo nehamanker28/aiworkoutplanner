@@ -13,12 +13,14 @@ import PlanScreen from './src/PlanScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootStackParamList } from './src/commons/types';
 import { enableScreens } from 'react-native-screens';
+import { WorkoutProvider } from './src/context/WorkoutContext';
 enableScreens(); 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
 
   return (
+    <WorkoutProvider>x
     <SafeAreaProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -27,6 +29,7 @@ function App() {
       </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaProvider>
+    </WorkoutProvider>
   );
 }
 
