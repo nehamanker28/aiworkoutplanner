@@ -1,9 +1,8 @@
 import { RouteProp } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity ,FlatList} from 'react-native';
 import { RootStackParamList } from './commons/types';
 import { useWorkout } from './context/WorkoutContext';
-import { FlatList } from 'react-native-gesture-handler';
 
 type PlanScreenProps = RouteProp<RootStackParamList, 'Plan'>;
 
@@ -18,15 +17,21 @@ const PlanScreen :React.FC<Props>= ({route}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Workout Plans</Text>
-            <FlatList data={plans} keyExtractor={(item) => item.id} 
-            renderItem={({ item }) => (
-                <Text style={styles.title}>Workout Plans</Text>
-
-            )} ></FlatList>
+            <FlatList 
+                data={plans} 
+                keyExtractor={(item) => item.id} 
+                renderItem={({ item }) => (
+                    <View style={{ marginBottom: 10 }}>
+                        <Text style={{ fontSize: 18, fontWeight: 'medium' }}>{item.title}</Text>
+                        <Text>{item.duration}</Text>
+                    </View>
+                )}
+            />
             
             <TouchableOpacity style={styles.button} onPress={handleCreatePlan}>
                 <Text style={styles.buttonText}>Create New Plan</Text>
-            </TouchableOpacity>
+                </TouchableOpacity>
+   
         </View>
     );
 };
@@ -34,8 +39,8 @@ const PlanScreen :React.FC<Props>= ({route}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding :10,
+        justifyContent: 'flex-start',
         backgroundColor: '#f5f5f5',
     },
     title: {
