@@ -17,7 +17,7 @@ const PlanScreen :React.FC<Props>= ({route}) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Workout Plans</Text>
-            <FlatList 
+            <FlatList
                 data={plans} 
                 keyExtractor={(item) => item.id} 
                 renderItem={({ item }) => (
@@ -27,10 +27,11 @@ const PlanScreen :React.FC<Props>= ({route}) => {
                     </View>
                 )}
             />
-            
+            <View style={{ padding: 20 ,justifyContent :'center' }}>
             <TouchableOpacity style={styles.button} onPress={handleCreatePlan}>
                 <Text style={styles.buttonText}>Create New Plan</Text>
                 </TouchableOpacity>
+                </View>
    
         </View>
     );
@@ -49,9 +50,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     button: {
+        alignItems: 'center',
         backgroundColor: '#007BFF',
-        padding: 15,
         borderRadius: 10,
+        padding: 15,
     },
     buttonText: {
         color: '#fff',

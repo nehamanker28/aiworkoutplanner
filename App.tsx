@@ -14,16 +14,18 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootStackParamList } from './src/commons/types';
 import { enableScreens } from 'react-native-screens';
 import { WorkoutProvider } from './src/context/WorkoutContext';
+import LoginScreen from './src/AuthFlowScreens/LoginScreen';
 enableScreens(); 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
 
   return (
-    <WorkoutProvider>x
+    <WorkoutProvider>
     <SafeAreaProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name = "Login" component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Plan" component={PlanScreen} />
       </Stack.Navigator>
